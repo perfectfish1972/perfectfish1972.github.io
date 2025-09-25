@@ -2,124 +2,287 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>PCH Projects — Home</title>
+  <title>Chad’s Site of Funky Stuff</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="PCH Projects — a simple personal site for shared links, notes, and downloads." />
+  <meta name="description" content="Chad’s Site of Funky Stuff — a playful home on the web." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
   <style>
     :root{
-      --bg:#f7f8fb; --ink:#0b0d12; --muted:#5b6573; --card:#fff; --bd:#e4e8f0;
-      --pad:16px; --r:16px; --maxw:920px;
+      --bg:#0f1226; --ink:#eef1ff; --muted:#b8baf2; --card:#171a36; --bd:#2a2f57;
+      --accent1:#7c5cff; --accent2:#00d4ff; --accent3:#ff59a0; --glow:0 0 40px rgba(124,92,255,.35);
+      --pad:16px; --r:18px; --maxw:980px;
     }
     *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--ink);
-      font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial,sans-serif}
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
-    header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--bd)}
-    .bar{display:flex;align-items:center;justify-content:space-between;height:56px}
-    .brand{font-weight:700;letter-spacing:.2px}
-    nav a{display:inline-block;text-decoration:none;color:var(--ink);padding:8px 10px;border-radius:10px}
-    nav a:hover{background:#f0f2f6}
-    .hero{padding:22px 0 10px}
-    h1{margin:8px 0 6px;font-size:1.7rem}
-    .lead{margin:0;color:var(--muted)}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--ink);
+      font:16px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial, "Noto Sans", sans-serif;
+      background: radial-gradient(1200px 800px at 10% -10%, rgba(124,92,255,.25), transparent),
+                  radial-gradient(1000px 700px at 90% 20%, rgba(0,212,255,.2), transparent),
+                  linear-gradient(180deg, #0a0c20, var(--bg));
+      overflow-x:hidden;
+    }
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--pad)}
+    /* Header */
+    header{position:sticky; top:0; z-index:50; backdrop-filter: blur(8px); background:rgba(10,12,32,.35); border-bottom:1px solid rgba(255,255,255,.06)}
+    .bar{display:flex; align-items:center; justify-content:space-between; height:64px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px}
+    .badge{display:inline-grid; place-items:center; width:36px; height:36px; border-radius:12px;
+      background: conic-gradient(from 180deg, var(--accent1), var(--accent2), var(--accent3), var(--accent1));
+      box-shadow: var(--glow)}
+    nav a{color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:10px}
+    nav a:hover{background:rgba(255,255,255,.06); color:#fff}
+    .btn{
+      appearance:none; border:1px solid var(--bd); background:var(--card); color:#fff; padding:10px 12px; border-radius:12px; cursor:pointer
+    }
+    .btn:hover{border-color:#4950a6}
+    /* Hero */
+    .hero{padding:34px 0 8px; position:relative}
+    .spark{position:absolute; inset:-120px -80px auto auto; width:220px; height:220px; filter:blur(40px);
+      background: radial-gradient(closest-side, rgba(255,89,160,.45), transparent 70%) }
+    h1{
+      margin:8px 0 10px; font-size: clamp(2.1rem, 4vw, 3rem); line-height:1.1;
+      background: linear-gradient(90deg, #fff, #cfe3ff 40%, #e9b7ff);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      text-shadow: 0 0 10px rgba(124,92,255,.25)
+    }
+    .lead{margin:0; color:var(--muted)}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin:16px 0 6px}
+    .pill{
+      display:inline-flex; gap:8px; align-items:center; padding:10px 12px; border-radius:999px; text-decoration:none; color:#0f1226; font-weight:700;
+      background:linear-gradient(90deg, var(--accent2), var(--accent1)); box-shadow: var(--glow)
+    }
+    .pill span{background:rgba(255,255,255,.25); padding:4px 8px; border-radius:999px; font-size:.88rem}
+    /* Sections */
     .section{padding:18px 0 24px}
-    .section h2{font-size:1.1rem;margin:0 0 10px;color:#1a1d24}
-    .grid{display:grid;gap:12px}
-    @media(min-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    a.card, .card{display:block;text-decoration:none;color:inherit;background:var(--card);
-      border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px}
-    a.card:active{transform:scale(.995)}
-    .eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:#5a6;margin-bottom:4px}
-    .title{font-weight:650}
-    .sub{color:var(--muted);font-size:.92rem;margin-top:2px}
-    .list{margin:0;padding:0;list-style:none}
-    .list li{margin:10px 0}
-    .btnrow{display:flex;flex-wrap:wrap;gap:8px}
-    .btn{display:inline-block;padding:10px 12px;border-radius:12px;border:1px solid var(--bd);
-      text-decoration:none;color:inherit;background:#fff}
-    .notice{background:#fff;border:1px dashed #cfd6e4;padding:10px 12px;border-radius:12px;color:#414a5a}
-    footer{border-top:1px solid var(--bd);background:#fff;color:#667;font-size:.9rem}
-    .foot{padding:14px 0;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center}
+    .section h2{font-size:1.1rem; color:#e8eaff; margin:0 0 12px; letter-spacing:.2px}
+    .grid{display:grid; gap:14px}
+    @media(min-width:720px){ .grid{ grid-template-columns: repeat(3, minmax(0,1fr)); } }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid var(--bd); border-radius:var(--r); padding:16px; min-height:138px;
+      box-shadow: 0 10px 24px rgba(5,6,18,.25)
+    }
+    .card h3{margin:0 0 8px; font-size:1.05rem}
+    .sub{color:var(--muted); font-size:.94rem}
+    .tag{display:inline-block; font-size:.75rem; color:#111; background:linear-gradient(90deg, #ffea7f, #ffd166);
+      padding:4px 8px; border-radius:999px; margin:6px 0 0}
+    .actions{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap}
+    .ghost{background:transparent; border:1px dashed #3d427a}
+    /* Toys */
+    .toy{display:grid; gap:10px; grid-template-columns: 1fr; align-items:center}
+    @media(min-width:680px){ .toy{ grid-template-columns: 1fr auto auto } }
+    .marquee{overflow:hidden; border:1px solid var(--bd); border-radius:12px; background:rgba(255,255,255,.04)}
+    .marquee__inner{display:flex; gap:28px; padding:10px 12px; animation:scroll 18s linear infinite; white-space:nowrap}
+    @keyframes scroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+    .clock{font-variant-numeric:tabular-nums; font-weight:700}
+    /* Footer */
+    footer{border-top:1px solid rgba(255,255,255,.06); color:var(--muted)}
+    .foot{padding:18px 0 22px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
+    /* Fun pulse */
+    .pulse{position:absolute; inset:auto auto -120px -120px; width:240px; height:240px; border-radius:50%;
+      background: radial-gradient(closest-side, rgba(0,212,255,.35), transparent 70%); filter: blur(36px); animation:pulse 6s ease-in-out infinite}
+    @keyframes pulse{ 0%,100%{ transform:scale(1)} 50%{ transform:scale(1.15)}}
   </style>
 </head>
 <body>
   <header>
     <div class="wrap bar">
-      <div class="brand">PCHProjects.ca</div>
+      <div class="brand">
+        <span class="badge">✨</span>
+        <span>Chad’s Site of Funky Stuff</span>
+      </div>
       <nav aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/about.html">About</a>
-        <a href="/contact.html">Contact</a>
+        <a href="#now">Now</a>
+        <a href="#toys">Toys</a>
+        <a href="#links">Links</a>
+        <button class="btn" id="themeBtn" title="Toggle theme">Toggle Theme</button>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
-    <!-- Hero -->
     <section class="hero">
-      <h1>Welcome</h1>
-      <p class="lead">Quick, no-nonsense hub for our shared links, notes, and downloads. Designed for phones.</p>
+      <div class="spark" aria-hidden="true"></div>
+      <h1>Welcome to the Funk.</h1>
+      <p class="lead">A tiny corner of the web for experiments, doodads, and whatever Chad finds interesting.</p>
+      <div class="ctaRow">
+        <a class="pill" href="#links">Explore <span>handy stuff</span></a>
+        <button class="btn ghost" id="funkify">Funkify</button>
+      </div>
+      <div class="pulse" aria-hidden="true"></div>
     </section>
 
-    <!-- Featured (keep just one visible item for now) -->
-    <section class="section" aria-label="Featured">
-      <h2>Featured</h2>
+    <!-- NOW -->
+    <section id="now" class="section">
+      <h2>Now</h2>
       <div class="grid">
-        <a class="card" href="/hmcs-rolette-cessation/">
-          <div class="eyebrow">Ship Resource</div>
-          <div class="title">HMCS Rolette — Smoking Cessation</div>
-          <div class="sub">Practical guidance and links</div>
+        <div class="card">
+          <h3>What’s this?</h3>
+          <p class="sub">A playful homepage. No logins, no drama. Updates whenever inspiration strikes.</p>
+          <span class="tag">Just for fun</span>
+        </div>
+        <div class="card">
+          <h3>Local Time</h3>
+          <p class="sub"><span class="clock" id="clock">--:--:--</span></p>
+          <div class="actions">
+            <button class="btn" id="beep">Beep in 10s</button>
+            <button class="btn ghost" id="copyURL">Copy Site URL</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Drop-ins coming soon</h3>
+          <p class="sub">Space for quick notes, a mini gallery, or a link-of-the-day.</p>
+          <span class="tag">Future idea</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOYS -->
+    <section id="toys" class="section">
+      <h2>Tiny Web Toys</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Color Pop</h3>
+          <p class="sub">Tap to swap the accent palette.</p>
+          <div class="actions">
+            <button class="btn" id="palette1">Purple / Aqua</button>
+            <button class="btn" id="palette2">Teal / Mango</button>
+            <button class="btn" id="palette3">Lime / Pink</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Secret Note (QR-friendly)</h3>
+          <p class="sub">Make a quick one-liner you can share as a link.</p>
+          <div class="toy">
+            <input id="noteInput" class="btn" style="width:100%" placeholder="Write a tiny note…" />
+            <button class="btn" id="makeNote">Make Link</button>
+            <a id="noteLink" class="btn ghost" style="display:none" href="#">Open note</a>
+          </div>
+        </div>
+
+        <div class="card marquee">
+          <div class="marquee__inner" aria-hidden="true">
+            <span>✨ stay funky</span><span>⚓ make small things</span><span>🧭 ship it</span>
+            <span>🎧 lo-fi & coffee</span><span>⚙️ build & learn</span><span>🗺️ east coast vibes</span>
+            <span>✨ stay funky</span><span>⚓ make small things</span><span>🧭 ship it</span>
+            <span>🎧 lo-fi & coffee</span><span>⚙️ build & learn</span><span>🗺️ east coast vibes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS -->
+    <section id="links" class="section">
+      <h2>Links</h2>
+      <div class="grid">
+        <a class="card" href="#" onclick="alert('Add your favorite link here'); return false;">
+          <h3>Favorite Link #1</h3>
+          <p class="sub">Replace with something you love.</p>
         </a>
-      </div>
-    </section>
-
-    <!-- Quick Links (edit freely; these can be internal or external) -->
-    <section class="section" aria-label="Quick Links">
-      <h2>Quick Links</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="eyebrow">Family</div>
-          <ul class="list">
-            <!-- Replace with real links; these are placeholders -->
-            <li><a href="/marice.html" class="btn">Marice Page</a></li>
-            <li><a href="/notes.html" class="btn">Shared Notes</a></li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="eyebrow">Crew</div>
-          <ul class="list">
-            <li><a href="#" class="btn">Port Guide (QR-only page)</a></li>
-            <li><a href="#" class="btn">Duty Timings (QR-only page)</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Downloads (drop files in this repo and link directly) -->
-    <section class="section" aria-label="Downloads">
-      <h2>Downloads</h2>
-      <div class="card">
-        <ul class="list">
-          <li><a href="/files/example.pdf">Example PDF</a></li>
-          <li><a href="/files/checklist.pdf">Checklist</a></li>
-        </ul>
-        <p class="sub">Place files under <code>/files/</code> in this repository.</p>
-      </div>
-    </section>
-
-    <!-- Info / Notice -->
-    <section class="section" aria-label="Note">
-      <div class="notice">
-        Keep sensitive material off this site. For “unlisted” pages, don’t link them here—share the exact URL or QR only.
+        <a class="card" href="#" onclick="alert('Add another link later'); return false;">
+          <h3>Favorite Link #2</h3>
+          <p class="sub">Swap these placeholders anytime.</p>
+        </a>
+        <a class="card" href="/hmcs-rolette-cessation/">
+          <h3>Smoking Cessation (Featured)</h3>
+          <p class="sub">Quick access to the resource page.</p>
+        </a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="wrap foot">
-      <div>PCHProjects.ca</div>
-      <div>Static site — fast, minimal, phone-first</div>
+      <div>© <span id="year"></span> Chad — Site of Funky Stuff</div>
+      <div>Made with plain HTML/CSS/JS</div>
     </div>
   </footer>
+
+  <audio id="ping" preload="auto">
+    <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABYAAAAAAABkYXRhAAAAAA==" type="audio/wav">
+  </audio>
+
+  <script>
+    // Live clock (browser local time)
+    const clock = document.getElementById('clock');
+    const tick = () => { const d = new Date();
+      clock.textContent = d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'});
+    };
+    tick(); setInterval(tick, 1000);
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle
+    const themeBtn = document.getElementById('themeBtn');
+    let dark = true;
+    themeBtn.addEventListener('click', () => {
+      dark = !dark;
+      document.documentElement.style.setProperty('--bg', dark ? '#0f1226' : '#f5f7ff');
+      document.documentElement.style.setProperty('--ink', dark ? '#eef1ff' : '#0f1226');
+      document.documentElement.style.setProperty('--muted', dark ? '#b8baf2' : '#5b6573');
+      document.documentElement.style.setProperty('--card', dark ? '#171a36' : '#ffffff');
+      document.documentElement.style.setProperty('--bd', dark ? '#2a2f57' : '#dfe3f0');
+      document.body.style.background = dark
+        ? 'radial-gradient(1200px 800px at 10% -10%, rgba(124,92,255,.25), transparent), radial-gradient(1000px 700px at 90% 20%, rgba(0,212,255,.2), transparent), linear-gradient(180deg, #0a0c20, #0f1226)'
+        : 'linear-gradient(180deg, #ffffff, #eef3ff)';
+    });
+
+    // Palette switches
+    const setPalette = (a1,a2,a3) => {
+      document.documentElement.style.setProperty('--accent1', a1);
+      document.documentElement.style.setProperty('--accent2', a2);
+      document.documentElement.style.setProperty('--accent3', a3);
+    };
+    document.getElementById('palette1').onclick = () => setPalette('#7c5cff','#00d4ff','#ff59a0');
+    document.getElementById('palette2').onclick = () => setPalette('#22d1c6','#ffb703','#ff6f61');
+    document.getElementById('palette3').onclick = () => setPalette('#b8ff3d','#ff59c7','#8ec5ff');
+
+    // Funkify button — playful jiggle
+    document.getElementById('funkify').addEventListener('click', () => {
+      document.querySelectorAll('.card').forEach((el,i)=>{
+        el.animate([
+          { transform:'translateY(0) scale(1)' },
+          { transform:'translateY(-6px) scale(1.02)' },
+          { transform:'translateY(0) scale(1)' }
+        ], { duration: 420 + i*40, easing:'ease-in-out' });
+      });
+    });
+
+    // Simple beep timer
+    document.getElementById('beep').addEventListener('click', () => {
+      const a = document.getElementById('ping');
+      setTimeout(()=>{ a.currentTime = 0; a.play().catch(()=>{}); alert('Beep!'); }, 10000);
+    });
+
+    // Copy URL helper
+    document.getElementById('copyURL').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(location.href);
+        alert('Site URL copied!');
+      } catch {
+        prompt('Copy this URL:', location.href);
+      }
+    });
+
+    // Tiny note link generator — turns note into a URL hash
+    document.getElementById('makeNote').addEventListener('click', () => {
+      const input = document.getElementById('noteInput');
+      const text = input.value.trim();
+      if(!text){ alert('Write a tiny note first.'); return; }
+      const url = location.origin + location.pathname + '#note=' + encodeURIComponent(text);
+      const link = document.getElementById('noteLink');
+      link.href = url; link.style.display = 'inline-block'; link.textContent = 'Open note';
+    });
+
+    // If a note hash exists, show it as an alert (QR-friendly)
+    const params = new URL(location.href).hash;
+    if(params.startsWith('#note=')){
+      const msg = decodeURIComponent(params.slice(6));
+      setTimeout(()=> alert('Note: ' + msg), 300);
+    }
+  </script>
 </body>
 </html>
