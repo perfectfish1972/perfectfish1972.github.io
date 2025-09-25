@@ -1,59 +1,125 @@
 <!doctype html>
 <html lang="en">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PCH Projects</title>
-<style>
-  :root { --bg:#f7f8fb; --ink:#0b0d12; --muted:#5a6370; --card:#fff; --bd:#e6e9f0; --maxw:880px; --pad:16px; --r:14px; }
-  * { box-sizing: border-box; }
-  body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial, sans-serif; background:var(--bg); color:var(--ink); }
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
-  header { border-bottom:1px solid var(--bd); background:#fff; position:sticky; top:0; z-index:10; }
-  .bar { display:flex; align-items:center; justify-content:space-between; height:56px; }
-  .brand { font-weight:700; letter-spacing:.2px; }
-  nav a { text-decoration:none; color:var(--ink); padding:8px 10px; border-radius:8px; }
-  nav a:hover { background:#f0f2f6; }
-  .hero { padding:22px 0 12px; }
-  h1 { margin:10px 0 6px; font-size:1.6rem; }
-  p.lead { margin:0; color:var(--muted); }
-  .grid { display:grid; gap:12px; padding:18px 0 28px; }
-  @media(min-width:680px){ .grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-  a.card { display:block; text-decoration:none; color:inherit; background:var(--card); border:1px solid var(--bd); border-radius:var(--r); padding:14px 16px; }
-  a.card:active { transform:scale(.995); }
-  .title { font-weight:600; }
-  .path { color:var(--muted); font-size:.9rem; margin-top:2px; }
-  footer { border-top:1px solid var(--bd); color:var(--muted); font-size:.9rem; padding:14px 0; background:#fff; }
-  .menu { display:flex; gap:6px; }
-</style>
+<head>
+  <meta charset="utf-8" />
+  <title>PCH Projects — Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="PCH Projects — a simple personal site for shared links, notes, and downloads." />
+  <style>
+    :root{
+      --bg:#f7f8fb; --ink:#0b0d12; --muted:#5b6573; --card:#fff; --bd:#e4e8f0;
+      --pad:16px; --r:16px; --maxw:920px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);
+      font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial,sans-serif}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+    header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--bd)}
+    .bar{display:flex;align-items:center;justify-content:space-between;height:56px}
+    .brand{font-weight:700;letter-spacing:.2px}
+    nav a{display:inline-block;text-decoration:none;color:var(--ink);padding:8px 10px;border-radius:10px}
+    nav a:hover{background:#f0f2f6}
+    .hero{padding:22px 0 10px}
+    h1{margin:8px 0 6px;font-size:1.7rem}
+    .lead{margin:0;color:var(--muted)}
+    .section{padding:18px 0 24px}
+    .section h2{font-size:1.1rem;margin:0 0 10px;color:#1a1d24}
+    .grid{display:grid;gap:12px}
+    @media(min-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    a.card, .card{display:block;text-decoration:none;color:inherit;background:var(--card);
+      border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px}
+    a.card:active{transform:scale(.995)}
+    .eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:#5a6;margin-bottom:4px}
+    .title{font-weight:650}
+    .sub{color:var(--muted);font-size:.92rem;margin-top:2px}
+    .list{margin:0;padding:0;list-style:none}
+    .list li{margin:10px 0}
+    .btnrow{display:flex;flex-wrap:wrap;gap:8px}
+    .btn{display:inline-block;padding:10px 12px;border-radius:12px;border:1px solid var(--bd);
+      text-decoration:none;color:inherit;background:#fff}
+    .notice{background:#fff;border:1px dashed #cfd6e4;padding:10px 12px;border-radius:12px;color:#414a5a}
+    footer{border-top:1px solid var(--bd);background:#fff;color:#667;font-size:.9rem}
+    .foot{padding:14px 0;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap bar">
+      <div class="brand">PCHProjects.ca</div>
+      <nav aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<header>
-  <div class="wrap bar">
-    <div class="brand">PCHprojects.ca</div>
-    <nav class="menu">
-      <!-- Add more pages later (create about.html, contact.html, etc.) -->
-      <a href="/">Home</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+  <main class="wrap">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Welcome</h1>
+      <p class="lead">Quick, no-nonsense hub for our shared links, notes, and downloads. Designed for phones.</p>
+    </section>
 
-<main class="wrap">
-  <section class="hero">
-    <h1>PCH Projects</h1>
-    <p class="lead">Quick links to our public tools and pages. This site is served via GitHub Pages.</p>
-  </section>
+    <!-- Featured (keep just one visible item for now) -->
+    <section class="section" aria-label="Featured">
+      <h2>Featured</h2>
+      <div class="grid">
+        <a class="card" href="/hmcs-rolette-cessation/">
+          <div class="eyebrow">Ship Resource</div>
+          <div class="title">HMCS Rolette — Smoking Cessation</div>
+          <div class="sub">Practical guidance and links</div>
+        </a>
+      </div>
+    </section>
 
-  <section class="grid" aria-label="Projects">
-  <a class="card" href="/hmcs-rolette-cessation/">
-    <div class="title">HMCS Rolette — Smoking Cessation</div>
-    <div class="path">/hmcs-rolette-cessation</div>
-  </a>
-</section>
+    <!-- Quick Links (edit freely; these can be internal or external) -->
+    <section class="section" aria-label="Quick Links">
+      <h2>Quick Links</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="eyebrow">Family</div>
+          <ul class="list">
+            <!-- Replace with real links; these are placeholders -->
+            <li><a href="/marice.html" class="btn">Marice Page</a></li>
+            <li><a href="/notes.html" class="btn">Shared Notes</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Crew</div>
+          <ul class="list">
+            <li><a href="#" class="btn">Port Guide (QR-only page)</a></li>
+            <li><a href="#" class="btn">Duty Timings (QR-only page)</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-</main>
+    <!-- Downloads (drop files in this repo and link directly) -->
+    <section class="section" aria-label="Downloads">
+      <h2>Downloads</h2>
+      <div class="card">
+        <ul class="list">
+          <li><a href="/files/example.pdf">Example PDF</a></li>
+          <li><a href="/files/checklist.pdf">Checklist</a></li>
+        </ul>
+        <p class="sub">Place files under <code>/files/</code> in this repository.</p>
+      </div>
+    </section>
 
-<footer>
-  <div class="wrap">Domain: pchprojects.ca · GitHub Pages</div>
-</footer>
+    <!-- Info / Notice -->
+    <section class="section" aria-label="Note">
+      <div class="notice">
+        Keep sensitive material off this site. For “unlisted” pages, don’t link them here—share the exact URL or QR only.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>PCHProjects.ca</div>
+      <div>Static site — fast, minimal, phone-first</div>
+    </div>
+  </footer>
+</body>
 </html>
