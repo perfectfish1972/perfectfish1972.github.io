@@ -1,14 +1,76 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Welcome to PCH Projects</title>
-  </head>
-  <body>
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PCH Projects</title>
+<style>
+  :root { --bg:#f7f8fb; --ink:#0b0d12; --muted:#5a6370; --card:#fff; --bd:#e6e9f0; --maxw:880px; --pad:16px; --r:14px; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial, sans-serif; background:var(--bg); color:var(--ink); }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+  header { border-bottom:1px solid var(--bd); background:#fff; position:sticky; top:0; z-index:10; }
+  .bar { display:flex; align-items:center; justify-content:space-between; height:56px; }
+  .brand { font-weight:700; letter-spacing:.2px; }
+  nav a { text-decoration:none; color:var(--ink); padding:8px 10px; border-radius:8px; }
+  nav a:hover { background:#f0f2f6; }
+  .hero { padding:22px 0 12px; }
+  h1 { margin:10px 0 6px; font-size:1.6rem; }
+  p.lead { margin:0; color:var(--muted); }
+  .grid { display:grid; gap:12px; padding:18px 0 28px; }
+  @media(min-width:680px){ .grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+  a.card { display:block; text-decoration:none; color:inherit; background:var(--card); border:1px solid var(--bd); border-radius:var(--r); padding:14px 16px; }
+  a.card:active { transform:scale(.995); }
+  .title { font-weight:600; }
+  .path { color:var(--muted); font-size:.9rem; margin-top:2px; }
+  footer { border-top:1px solid var(--bd); color:var(--muted); font-size:.9rem; padding:14px 0; background:#fff; }
+  .menu { display:flex; gap:6px; }
+</style>
+
+<header>
+  <div class="wrap bar">
+    <div class="brand">PCHProjects.ca</div>
+    <nav class="menu">
+      <!-- Add more pages later (create about.html, contact.html, etc.) -->
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
     <h1>PCH Projects</h1>
-    <p>This is the homepage. Use the links below to visit other project pages:</p>
-    <ul>
-      <li><a href="https://pchprojects.ca/hmcs-rolette-cessation">HMCS Rolette Cessation</a></li>
-      <!-- Later you can add more links here -->
-    </ul>
-  </body>
+    <p class="lead">Quick links to our public tools and pages. This site is served via GitHub Pages.</p>
+  </section>
+
+  <section class="grid" aria-label="Projects">
+    <!-- Edit titles + paths to match your repo names -->
+    <a class="card" href="/helping-pros/">
+      <div class="title">Helping Professionals — Halifax / Atlantic</div>
+      <div class="path">/helping-pros</div>
+    </a>
+
+    <a class="card" href="/christmas_gift/">
+      <div class="title">Christmas Gift Tracker</div>
+      <div class="path">/christmas_gift</div>
+    </a>
+
+    <a class="card" href="/hmcs-rolette-cessation/">
+      <div class="title">HMCS Rolette — Smoking Cessation</div>
+      <div class="path">/hmcs-rolette-cessation</div>
+    </a>
+
+    <!-- Add more cards as needed:
+    <a class="card" href="/<repo-name>/">
+      <div class="title">Project Title</div>
+      <div class="path">/<repo-name></div>
+    </a>
+    -->
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Domain: pchprojects.ca · GitHub Pages</div>
+</footer>
 </html>
